@@ -19,9 +19,9 @@ enable true
 end
 
 
-mysql_database node['phpapp']['database'] do 
-connection ({:host=>'localhost',:username=>'root',:password=>node['mysql']['server_root_password']})
-action:create
+mysql_database node['phpapp']['database'] do
+  connection ({:host => 'localhost', :username => 'root', :password => node['mysql']['server_root_password']})
+  action :create
 end
 
 mysql_database_user node['phpapp']['db_username'] do
