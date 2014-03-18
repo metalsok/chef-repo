@@ -17,3 +17,9 @@ include_recipe "apache2::mod_php5"
 apache_site "default" do 
 enable true
 end
+
+
+mysql_database node['phpapp']['database'] do 
+connection ({:host=>'localhost',:username=>'root',:password=>node['mysql']['server_root_password']})
+action:create
+end
